@@ -71,8 +71,7 @@ function check(guess){
     }
 }
 
-function guess(){
-    let guessed_string = get_string()
+function guess(guessed_string){
     check(guessed_string)
 
     if (current_row == 5){
@@ -89,7 +88,12 @@ function on_key(event){
     } else if ("abcdefghijklmnopqrstuvwxyzåäö".includes(event.key)){
         current_tile < 30 && Math.ceil((get_index()+1)/5) == current_row+1 || current_tile == 0 ? insert_char(event.key) : null;
     } else if (event.key == "Enter" && current_tile == 5){
-        guess()
+        let guessed_string = get_string()
+        if (words.includes(guessed_string)){
+            guess(guessed_string)
+        } else {
+            alert(guessed_string + " är inte att godkänt ord.")
+        }
     }
 }
 

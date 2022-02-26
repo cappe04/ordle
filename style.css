@@ -1,14 +1,12 @@
 body {
-    display: flex;
     background-color: #121213;
     margin: 0;
+    padding: 0;
 }
 
-header {
-    border-bottom: 1px solid #3a3a3c;
-    color: white;
-    min-width: 100%;
-    float: top;
+@font-face {
+    font-family: "wodle-font";
+    src: url("wordlefont.woff2");
 }
 
 .tile {
@@ -28,17 +26,29 @@ header {
     width: 64px;
     height: 64px;
     border: 2px solid #3a3a3c;
-    font-family: 'Segoe UI';
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.game {
-    float: center;
+.header {
+    border-bottom: 1px solid #3a3a3c;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    font-family: 'wodle-font';
+    font-weight: 700;
+    font-size: 37px;
+    line-height: 100%;
+    letter-spacing: 0.01em;
+    text-align: center;
+    left: 0;
+    right: 0;
+    pointer-events: none;
 }
 
 .game_board {
+    display: flex;
     justify-content: center;
-    align-items: center;
-    margin: auto;
+    margin-top: 10%;
 }
 
 .board {
@@ -47,12 +57,15 @@ header {
     min-height: 100%;
     grid-gap: 5px;
     max-inline-size: 0%;
-    align-content: center;
+    justify-content: center;
 }
 
 .row {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     grid-gap: 5px;
-    
+}
+
+:root {
+    color: white;
 }
